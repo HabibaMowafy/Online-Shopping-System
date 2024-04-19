@@ -8,8 +8,8 @@ The Online Shopping System is a Java-based application designed to provide users
 
 ## Features
 
---> **User Authentication:** Users can register, login, and manage their accounts securely.
---> **Product Catalog:** Browse through a wide range of products categorized into different sections.
---> **Shopping Cart:** Add products to the cart for later purchase and manage the items.
---> **Checkout Process:** Secure checkout process with support for various payment methods.
+--> **User Authentication:** Users can register, login, and manage their accounts securely.<br>
+--> **Product Catalog:** Browse through a wide range of products categorized into different sections.<br>
+--> **Shopping Cart:** Add products to the cart for later purchase and manage the items.<br>
+--> **Checkout Process:** Secure checkout process with support for various payment methods.<br>
 --> **Order Management:** View past orders and track the status of current orders.
