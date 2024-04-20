@@ -1,3 +1,8 @@
+package Lab4;
+
+
+
+
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -67,12 +72,10 @@ public class User {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter email address: ");
         this.email = input.next();
-        System.out.println("Enter Name: ");
-        this.name = input.next();
+        setName();
         System.out.println("Enter Username: ");
         this.username = input.next();
-        System.out.println("Enter Password: ");
-        this.password = input.next();
+        setPassword();
         setPhoneNo();
         setAge();
         System.out.println("Enter Address: ");
@@ -118,8 +121,37 @@ public class User {
         return name;
     }
     
-    public void setName(String name){
-        this.name = name;
+    public void setName(){
+    	Scanner input = new Scanner(System.in);
+    	String enteredName;
+    	int errorName=0;
+    	try {
+    		System.out.println("Enter Name: ");
+    		enteredName = input.next();
+    		for(int i=1; i <= enteredName.length();i++)
+    		{
+    			if(enteredName.substring(i-1, i).matches(".*[0-9].*"))
+    		{
+            errorName=1;
+
+        } 
+   			
+    	}
+    		if(errorName==0)
+    		{
+    			this.name=enteredName;
+    		}
+    		else
+    		{
+    			System.out.println("Invalid name, retry");
+    			setName();
+    		}
+    	}
+        catch (InputMismatchException e) {
+        System.out.println("Invalid Name, retry");
+        setName();
+    }
+    
     }
     
     public String getEmail(){
@@ -142,8 +174,20 @@ public class User {
         return password;
     }
     
-    public void setPassword(String password){
-        this.password = password;
+    public void setPassword(){
+    	Scanner input = new Scanner(System.in);
+    	System.out.println("Enter password: ");
+    	String enteredPassword = input.next();
+    	if(enteredPassword.length()<8)
+    	{
+    		System.out.println("Password can't be less than 8 characters, retry");
+    		setPassword();
+    	}
+    	else
+    	{
+            this.password = enteredPassword;
+    	}
+
     }
     
     public int getAge(){
@@ -193,8 +237,10 @@ public class User {
     	try {
     		System.out.println("Enter phone number: ");
              enteredphoneNo = input.nextInt();
-        if(enteredphoneNo<0){
-            System.out.println("Invalid phone number, retry");
+             String phone = Integer.toString(enteredphoneNo);
+        if(phone.length()!=11){ //checks if number is not 11 digits
+            System.out.println("Invalid phone number, phone number must be 11 digit integer");
+            //doesnt work <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
             setPhoneNo();
         } 
         else {
@@ -202,12 +248,11 @@ public class User {
         }
     	}
         catch (InputMismatchException e) {
-        System.out.println("Invalid phone number, retry");
+        System.out.println("Invalid phone number, phone number must be 11 digit integer");
         setPhoneNo();
     }
     }
-    
-    
+ 
     
     public static int getAccountNo(){
             return accountNo;
