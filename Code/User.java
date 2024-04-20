@@ -1,7 +1,10 @@
 package Lab4;
 
 
+
+
 import java.util.Scanner;
+import java.util.InputMismatchException;
 import java.util.Random;
 /**
  *
@@ -60,7 +63,8 @@ public class User {
             pw = pw.concat(c);
         }
         this.password=pw;
-        System.out.println(toString() + ", password: " + password);
+        System.out.println("Your password is: " + password);
+        System.out.println(toString());
     }
     
     public void register(){
@@ -74,10 +78,8 @@ public class User {
         this.username = input.next();
         System.out.println("Enter Password: ");
         this.password = input.next();
-        System.out.println("Enter Phone number: ");
-        setPhoneNo(input.nextInt());
-        System.out.println("Enter Age: ");
-        setAge(input.nextInt());
+        setPhoneNo();
+        setAge();
         System.out.println("Enter Address: ");
         this.address = input.next();
         System.out.println(toString());
@@ -153,15 +155,29 @@ public class User {
         return age;
     }
     
-    public void setAge(int age){
-        if(age<0 | age >100){
-            System.out.println("Invalid age");
-            System.out.println("Re enter the age: ");
-            Scanner input = new Scanner(System.in);
-            setAge(input.nextInt());
-        } else {
-            this.age = age;
+    public void setAge()throws IllegalArgumentException {
+    	
+    	Scanner input = new Scanner(System.in);
+    	try {
+    		System.out.println("Enter age: ");
+            int age = input.nextInt();
+            
+            if (age<0 | age >100)
+   	 	 {
+   	 	 
+   	     System.out.println("Invalid age, age must be an integer between 0 and 100");
+         setAge();
+   	 	 }
+   		 else
+   		 {
+   			 this.age =  age;
+   		 }
+
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid age, age must be an integer between 0 and 100");
+            setAge();
         }
+
     }
     
     public String getAddress(){
@@ -176,21 +192,29 @@ public class User {
         return phoneNo;
     }
 
-    public void setPhoneNo(int phoneNo){
-        if(phoneNo<0){
-            System.out.println("Invalid phone number");
-            System.out.println("Re enter the phone number: ");
-            Scanner input = new Scanner(System.in);
-            setPhoneNo(input.nextInt());
-        } else {
-            this.phoneNo = phoneNo;
+    public void setPhoneNo(){
+    	Scanner input = new Scanner(System.in);
+    	int enteredphoneNo;
+    	try {
+    		System.out.println("Enter phone number: ");
+             enteredphoneNo = input.nextInt();
+        if(enteredphoneNo<0){
+            System.out.println("Invalid phone number, retry");
+            setPhoneNo();
+        } 
+        else {
+            this.phoneNo = enteredphoneNo;
         }
+    	}
+        catch (InputMismatchException e) {
+        System.out.println("Invalid phone number, retry");
+        setPhoneNo();
     }
-
+    }
+    
+    
+    
     public static int getAccountNo(){
             return accountNo;
     }
 }
-
-
-
