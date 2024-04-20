@@ -159,14 +159,6 @@ public final class Product{
             return false;
         }
         return Objects.equals(this.description, other.description);
-    }
-
-   
-    
-    
-    
-    
-    
-    
+    }    
 }  
 
