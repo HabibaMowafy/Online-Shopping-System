@@ -3,7 +3,11 @@ package Lab4;
 
 import java.util.Scanner;
 import java.util.Random;
-public class U {
+/**
+ *
+ * @author Mariam
+ */
+public class User {
 	private String name;
 	private String email;
 	private String username;
@@ -12,7 +16,7 @@ public class U {
 	private int age;
 	private String address;
 	private static int accountNo =0;
-	public U()
+	public User()
 	{
 		int op=0;
 		Scanner input = new Scanner(System.in);
@@ -37,7 +41,7 @@ public class U {
 		
 	}
 	
-	public U(String email)
+	public User(String email)
 	{
 		register(email);
 	}
