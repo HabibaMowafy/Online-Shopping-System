@@ -13,6 +13,13 @@ import java.util.Random;
  *
  * @author Mariam
  */
+
+
+
+package Project;
+import java.util.Scanner;
+import java.util.InputMismatchException;
+import java.util.Random;
 public class User {
 	private String name;
     private String email;
@@ -51,7 +58,8 @@ public class User {
         }
     }
     public User(String name, String email, String username, String password, long phoneNo, int age, String address) {
-		setName(name);
+		accountNo++;
+    	setName(name);
 		this.email = email;
 		setUsername(username);
 		setPassword(password);
@@ -233,8 +241,7 @@ public void setPhoneNo(long enteredphoneNo) throws IllegalArgumentException {
     if(phone.length()!=11){ //checks if number is not 11 digits
         System.out.println("Invalid phone number, phone number must be 11 digit integer, retry: ");
         setPhoneNo(input.nextLong());
-        //doesnt work <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
-    } 
+        } 
     else {
         this.phoneNo = enteredphoneNo;
     }
@@ -248,3 +255,4 @@ public static int getAccountNo(){
     return accountNo;
 }
 }
+
