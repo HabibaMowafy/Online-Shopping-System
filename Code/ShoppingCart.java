@@ -1,3 +1,5 @@
+package code;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,7 +10,7 @@ import java.util.List;
 public class ShoppingCart {
     private List<Product> items;
     private List<Integer> quantities;
-    
+
     public static class QuantityExceededException extends Exception {
         public QuantityExceededException(String message) {
             super(message);
@@ -18,6 +20,15 @@ public class ShoppingCart {
     public ShoppingCart() {
         this.items = new ArrayList<>();
         this.quantities = new ArrayList<Integer>();
+    }
+
+    // defining getters
+    public List<Product> getItems() {
+        return this.items;
+    }
+
+    public List<Integer> getQuantity() {
+        return this.quantities;
     }
 
     public void addItem(Product product) {
@@ -32,7 +43,7 @@ public class ShoppingCart {
         quantities.remove(index);
         product.removedFromCart(this.quantities.get(index));
     }
-    
+
     public void Increase(Product product) throws QuantityExceededException {
         int index = items.indexOf(product);
         int quantity = this.quantities.get(index);
@@ -42,25 +53,24 @@ public class ShoppingCart {
         } else {
             this.quantities.set(index, quantity++);
             product.addedToCart(1);
-            
-            
+
         }
     }
-    
+
     public void Decrease(Product product) {
         int index = items.indexOf(product);
         int quantity = this.quantities.get(index);
-        if (quantity == 1){
-           removeItem(product);
-        }else{
+        if (quantity == 1) {
+            removeItem(product);
+        } else {
             this.quantities.set(index, quantity--);
             product.removedFromCart(1);
         }
     }
 
     public void clearCart() {
-        for(int i = 0; i < items.size(); i++){
-           this.items.get(i).removedFromCart(this.quantities.get(i));
+        for (int i = 0; i < items.size(); i++) {
+            this.items.get(i).removedFromCart(this.quantities.get(i));
         }
         items.clear();
         quantities.clear();
@@ -72,16 +82,16 @@ public class ShoppingCart {
             System.out.println(quantities.get(i));
         }
     }
-    
+
     public double getTotalPrice() {
         double totalPrice = 0;
-        for(int i = 0; i < items.size(); i++){
+        for (int i = 0; i < items.size(); i++) {
             totalPrice += items.get(i).getPrice();
         }
         System.out.println("Total price: " + totalPrice);
         return totalPrice;
     }
-    
+
     public Order checkout() {
         Order order = new Order(this);
         return order;
