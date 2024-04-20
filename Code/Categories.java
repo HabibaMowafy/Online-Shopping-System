@@ -96,6 +96,21 @@ public class Categories implements Comparable<Categories>{
          else
          products.remove(Removedproduct);
           }
+  //adding methode for the search of certain porduct 
+  void searchProduct(String nameOfProduct) throws ProductNotFoundException
+  { int flag=0;
+for(int i=0;i<products.size();i++)  
+{  if((products.get(i).getName()).equals(nameOfProduct))
+{  flag=1;
+   System.out.print(products.get(i).getDetails());
+break;
+}
+
+}
+if(flag==0)
+  throw new ProductNotFoundException("there is no such product found");
+  }
+  
  //to print the detailed information of the list : 
 public void printCateroryDetails (){
 System.out.println("the name of category is "+ nameOfCategory+" the brief description f the category is "+description);
