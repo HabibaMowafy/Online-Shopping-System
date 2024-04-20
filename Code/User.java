@@ -1,6 +1,6 @@
 <<<<<<< HEAD
 =======
-package Lab4;
+package Project;
 
 
 
@@ -13,13 +13,6 @@ import java.util.Random;
  *
  * @author Mariam
  */
-
-
-
-package Project;
-import java.util.Scanner;
-import java.util.InputMismatchException;
-import java.util.Random;
 public class User {
 	private String name;
     private String email;
