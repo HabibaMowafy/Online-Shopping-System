@@ -1,11 +1,13 @@
-import java.util.ArrayList;
+
+  import java.util.ArrayList;
+import java.util.Objects;
 
 /**
  *
- * @author Omar_Mamon
+ * @author Omar Mamon
  */
 
-public final class Product {
+public final class Product{
     private int productId;
     private String name;
     private String description;
@@ -13,7 +15,7 @@ public final class Product {
     private int quantity;
     private double rating;
     public int numberOfRatings = 0;
-
+    
     public Product(int productId, String name, String description, double price, int quantity) {
         this.productId = productId;
         this.name = name;
@@ -33,6 +35,11 @@ public final class Product {
         // for setting in/out products
         this.quantity = quantity;
     }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
 
     // defining getters
     public int getProductId() {
@@ -63,7 +70,7 @@ public final class Product {
         return numberOfRatings;
     }
 
-    // Exception handling
+    //Exception handling
     public static class ratingExceededException extends Exception {
         public ratingExceededException(String message) {
             super(message);
@@ -74,7 +81,7 @@ public final class Product {
         // calculate rating
         if (rating < 0 || rating > 5) {
             throw new ratingExceededException("Invalid rating, rating should be between 0 and 5");
-
+           
         } else {
             this.rating = (this.rating * this.numberOfRatings + rating) / (numberOfRatings + 1);
 
@@ -98,7 +105,6 @@ public final class Product {
         productDetails.add(Double.toString(this.price));
         productDetails.add(Integer.toString(this.quantity));
         productDetails.add(Double.toString(this.rating));
-        productDetails.add(Integer.toString(this.numberOfRatings));
 
         return productDetails;
     }
@@ -118,5 +124,49 @@ public final class Product {
         // product added to cart
         this.quantity += quantity;
     }
+//we have to override equal methode in order to use it again
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        return hash;
+    }
 
-}
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Product other = (Product) obj;
+        if (this.productId != other.productId) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.price) != Double.doubleToLongBits(other.price)) {
+            return false;
+        }
+        if (this.quantity != other.quantity) {
+            return false;
+        }
+        if (Double.doubleToLongBits(this.rating) != Double.doubleToLongBits(other.rating)) {
+            return false;
+        }
+        if (!Objects.equals(this.name, other.name)) {
+            return false;
+        }
+        return Objects.equals(this.description, other.description);
+    }
+
+   
+    
+    
+    
+    
+    
+    
+}  
+
