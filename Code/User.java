@@ -1,8 +1,3 @@
-package Lab4;
-
-
-
-
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.Random;
@@ -105,7 +100,7 @@ public class User {
                     e.printStackTrace();
                 }
                 error++;
-                //cooldown 
+                //waiting 
                 login();
             } 
             error++;
