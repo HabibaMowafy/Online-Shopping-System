@@ -10,9 +10,7 @@ import java.util.HashMap;
  * @author Mariam
  */
 
-
-
-public abstract class User {
+public class User {
 	private static final HashMap<String, String> users = new HashMap<>();
 	private String name;
     private String email;
@@ -92,7 +90,7 @@ public abstract class User {
     	} 
     	else 
     	{
-    	System.out.println("Invalid username or password, retry");
+    	System.out.println("Invalid password, retry");
     	login();
     	}
     }
@@ -221,4 +219,3 @@ public static int getAccountNo(){
     return accountNo;
 }
 }
-
