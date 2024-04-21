@@ -10,9 +10,10 @@ import java.util.HashMap;
  * @author Mariam
  */
 
-public class User {
-	private static final HashMap<String, String> users = new HashMap<>();
-	private String name;
+public abstract class User {
+//abstract because we will make customer and seller classes so we do not want a user to exist without deciding customer or seller
+    private static final HashMap<String, String> users = new HashMap<>();
+    private String name;
     private String email;
     private String username;
     private String password;
