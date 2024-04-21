@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Code;
 
 import java.util.ArrayList;
@@ -11,11 +7,11 @@ import java.util.ArrayList;
  * @author shahd
  */
 
-public class subCategories implements Comparable<subCategories> {
+public class SubCategories implements Comparable<SubCategories> {
     private String nameOfCategory;
     private String description;
     private ArrayList<Product> products;
-    
+
     public subCategories(){
         
     }
@@ -25,7 +21,7 @@ public class subCategories implements Comparable<subCategories> {
         this.description = description;
         this.products = products;
     }
-    
+
     public String getNameOfCategory() {
         return nameOfCategory;
     }
