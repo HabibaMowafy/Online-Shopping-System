@@ -1,4 +1,4 @@
-package Project;
+package SrcCode;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
