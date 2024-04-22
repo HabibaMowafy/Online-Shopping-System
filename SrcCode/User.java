@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-=======
-package Lab4;
+package SrcCode;
 
-
-
-
->>>>>>> 2ab0ad24e9c15cb7f81631c65b0c5c30ff4e69aa
 import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.Random;
